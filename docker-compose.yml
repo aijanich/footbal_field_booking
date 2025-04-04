@@ -1,0 +1,52 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${APP_PORT}:8000"
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"] # <-- TO'G'RI VARIANT
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    depends_on:
+      pgsql:
+        condition: service_healthy
+    networks:
+      - local
+
+  pgsql:
+    image: postgis/postgis:15-3.4
+    container_name: db
+    environment:
+      PGPASSWORD: "${DB_PASSWORD:-secret}"
+      POSTGRES_DB: "${DB_NAME}"
+      POSTGRES_USER: "${DB_USER}"
+      DB_PORT: "${DB_PORT}"
+      POSTGRES_PASSWORD: "${DB_PASSWORD:-secret}"
+      TZ: "Asia/Tashkent"
+    volumes:
+      - local-pg-task-manager:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql # <-- Add this line
+    networks:
+      - local
+    healthcheck:
+      test:
+        - CMD
+        - pg_isready
+        - "-q"
+        - "-d"
+        - "${DB_NAME}"
+        - "-U"
+        - "${DB_USER}"
+      retries: 3
+      timeout: 5s
+
+networks:
+  local:
+    driver: bridge
+
+volumes:
+  local-pg-task-manager:
+    driver: local
