@@ -1,0 +1,20 @@
+# Django
+DJANGO_ENV=production
+SECRET_KEY=your-secret-key-here
+DEBUG=0
+ALLOWED_HOSTS=localhost,127.0.0.1
+APP_PORT=8000
+DJANGO_SUPERUSER_USERNAME=admin
+DJANGO_SUPERUSER_EMAIL=admin@mail.ru
+DJANGO_SUPERUSER_PASSWORD=admin123
+
+# Database
+DB_NAME=football_db
+DB_USER=postgres
+DB_PASSWORD=alfa123
+DB_HOST=db
+DB_PORT=5432
+
+# GeoDjango
+GDAL_LIBRARY_PATH=/lib/x86_64-linux-gnu/libgdal.so
+GEOS_LIBRARY_PATH=/lib/x86_64-linux-gnu/libgeos_c.so
