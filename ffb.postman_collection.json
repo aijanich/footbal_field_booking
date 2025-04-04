@@ -1,0 +1,323 @@
+{
+	"info": {
+		"_postman_id": "5ffad817-60b4-43dd-9bde-e2401826a862",
+		"name": "ffb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17821936"
+	},
+	"item": [
+		{
+			"name": "AUTH",
+			"item": [
+				{
+					"name": "api/token/",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "fields",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/fields/?lat=38.6439714&lng=66.5170552",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"fields",
+								""
+							],
+							"query": [
+								{
+									"key": "start",
+									"value": "2026-04-04T13:00:00Z",
+									"disabled": true
+								},
+								{
+									"key": "end",
+									"value": "2026-04-04T15:00:00",
+									"disabled": true
+								},
+								{
+									"key": "lat",
+									"value": "38.6439714"
+								},
+								{
+									"key": "lng",
+									"value": "66.5170552"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Champion Arena3\",\n    \"address\": \"123 Main Street, City3\",\n    \"contact_number\": \"+12345678903\",\n    \"description\": \"A high-quality football field with artificial turf.3\",\n    \"price_per_hour\": 503.00,\n    \"latitude\": 413.2995,\n    \"longitude\": 693.2401,\n    \"facilities\": {\n        \"showers\": true,\n        \"parking\": true\n    },\n    \"is_active\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/fields/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"fields",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Champion Arena33\",\n    \"address\": \"123 Main Street, City3\",\n    \"contact_number\": \"+12345678903\",\n    \"description\": \"A high-quality football field with artificial turf.3\",\n    \"price_per_hour\": 503.00,\n    \"latitude\": 413.2995,\n    \"longitude\": 693.2401,\n    \"facilities\": {\n        \"showers\": true,\n        \"parking\": true\n    },\n    \"is_active\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/fields/3/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"fields",
+								"3",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/fields/3/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"fields",
+								"3",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/fields/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"fields",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "bookings",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/bookings/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"bookings",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n        \n        \"user\": 4,\n        \"field\": 1,\n        \"start_time\": \"2025-04-02T13:26:17Z\",\n        \"end_time\": \"2025-04-02T15:27:08Z\",\n        \"status\": \"pending\",\n        \"created_at\": \"2025-04-01T15:27:20.619714Z\",\n        \"field_info\": {\n            \"name\": \"Field1\",\n            \"price\": 10.0,\n            \"address\": \"field address\"\n        },\n        \"user_email\": \"user1@df.yu\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/bookings/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"bookings",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/bookings/1/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"bookings",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n    {\n        \"id\": 2,\n        \"user\": 2,\n        \"field\": 1,\n        \"start_time\": \"2026-04-04T13:26:17Z\",\n        \"end_time\": \"2026-04-04T15:27:08Z\",\n        \"status\": \"confirmed\",\n        \"created_at\": \"2025-04-01T16:56:32.994184Z\",\n        \"field_info\": {\n            \"name\": \"Field1\",\n            \"price\": 10.0,\n            \"address\": \"field address\"\n        },\n        \"user_email\": \"azamat4520@gmail.com\"\n    }\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/bookings/2/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"bookings",
+								"2",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detail",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ0MTc5OTMzLCJpYXQiOjE3NDM3NDc5MzMsImp0aSI6ImFhOTY3OTMwNjVjMzRlY2U5MTg2ODEwNzdhZmY3NDU0IiwidXNlcl9pZCI6Mn0.WRqjygWWZXESIH1S9IN6lAzQyNQe_t4Q8_MvMYyrQiI",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
